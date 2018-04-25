@@ -12,19 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label('Username') ?>
 
-    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true])->label('Email') ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password_hash')->passwordInput(['maxlength' => true])->label('Password'); ?>
 
-    <?= $form->field($model, 'EMP_ID')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'avatar')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'TEMPLATE')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'avatarImage')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'EMP_ID')->textInput(['maxlength' => true])->label('ID Employe'); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

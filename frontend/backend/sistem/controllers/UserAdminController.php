@@ -94,8 +94,11 @@ class UserAdminController extends Controller
     {
         $model = new UserAdmin();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->setPassword($model['password_hash']);
+            $model->generateAuthKey();
+            $model->save(false);
+            return $this->redirect(['index']);
         }
 
         return $this->renderAjax('create', [
